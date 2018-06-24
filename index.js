@@ -6,6 +6,10 @@ var app = express();
 
 var mysql = require('mysql');
 
+var portnumber = 1337
+
+var port = process.env.PORT || portnumber;
+
 var con = mysql.createConnection({
   host: "cnhbaletaggerserver.mysql.database.azure.com",
   user: "CNHIndustrial@cnhbaletaggerserver",
@@ -41,8 +45,8 @@ app.post('*', function (request, response) {
 	});
 });
 
-app.listen(13000, function () {
-    console.log("Started on PORT 13000");
+app.listen(port, function () {
+    console.log("Started on PORT" + portnumber);
 })
 
 
